@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CalCulaTHOR</title>
+		<script type="text/javascript">
+			document.write("<b><H0>Bienvenido a CalCulaTHOR</H0></b>", "<br>");
+			document.write("- Qué necesitas saber:", "<br>");
+			document.write("1. Esta calculadora solo realiza operaciones con dos operandos", "<br>");
+			document.write("2. Las operaciones soportadas son suma, resta, multiplicación y división", "<br>");
+			document.write("<br>");
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var num1;
+			var num2;
+			var operacion;
+			function result(num1, num2, op)
+			{
+				var result;
+				num1 = parseFloat(num1);
+				num2 = parseFloat(num2);
+				document.write("La operación seleccionada es: ");
+				document.write(num1 + op + num2, "<br>");
+				document.write("<br>");
+				switch(op)
+				{
+					case '+':
+						result = num1 + num2;
+						break;
+					case '-':
+						result = num1 - num2;
+						break;
+					case '*':
+						result = num1 * num2;
+						break;
+					case '/':
+						result = num1 / num2;
+						break;
+				}
+				document.write("El resultado es: ");
+				document.write(parseFloat(result), "<br>");
+				document.write("<br>");
+				document.write("<b>Gracias por elegir CalCulaTHOR, esperamos haberte ayudado en tus operaciones</b>", "<br>");
+			}
+			function valid_op(operacion, num1, num2)
+			{
+				switch(operacion)
+				{
+					case '+':
+						result(num1, num2, operacion);
+						break;
+					case '-':
+						result(num1, num2, operacion);
+					break;
+					case '*':
+						result(num1, num2, operacion);
+						break;
+					case '/':
+						result(num1, num2, operacion);
+						break;
+					default:
+						document.write("<H1>Operación seleccionada no válida</H1>", "<br>");
+						break;
+				}
+			}
+			function get()
+			{
+				var oper = document.getElementById('oper').value;
+				if (oper == "")
+				{
+					alert('El campo operador no puede estar vacío');
+					return false;
+				}
+				var num1 = document.getElementById('num1').value;
+				if (num1 == "")
+				{
+					alert('El primer número no puede estar vacío');
+					return false;
+				}
+				if (isNaN(parseFloat(num1)))
+				{
+					alert('El primer número ha de ser de tipo numérico');
+					return false;
+				}
+				var num2 = document.getElementById('num2').value;
+				if (num2 == "")
+				{
+					alert('El segundo número no puede estar vacío');
+					return false;
+				}
+				if (isNaN(parseFloat(num2)))
+				{
+					alert('El segundo número ha de ser de tipo numérico');
+					return false;
+				}
+				valid_op(oper, num1, num2);
+			}
+		</script>
+		<form>
+			Escribe un operador:
+			<input type="text" id="oper" required/><br>
+			Escribe un numero:
+			<input type="text" id="num1" required/><br>
+			Escribe un numero:
+			<input type="text" id="num2" required/><br>
+			<input type="button" value="Confirmar" onClick="get()"/>
+			</form>
+	</body>
+</html>
